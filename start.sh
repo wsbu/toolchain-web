@@ -67,7 +67,7 @@ fi
 
 if (( $# == 0 )); then
 	/bin/bash
-elif [[ -z "${RUN_AS_SUDO}" || "0" == "${RUN_AS_SUDO}" ]]; then
+elif [[ -z "${RUN_AS_ROOT}" || "0" == "${RUN_AS_ROOT}" ]]; then
     exec "${@}"
 else
 	sudo "${@}"
