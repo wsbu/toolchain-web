@@ -66,7 +66,9 @@ if (( RESET != 0 )); then
 fi
 
 if (( $# == 0 )); then
-	/bin/bash 
+	/bin/bash
+elif [[ -z "${RUN_AS_ROOT}" || "0" == "${RUN_AS_ROOT}" ]]; then
+    exec "${@}"
 else
-	exec "${@}"	
+	sudo "${@}"
 fi
