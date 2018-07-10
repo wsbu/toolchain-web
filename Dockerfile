@@ -15,15 +15,12 @@ RUN apt-get install -y nodejs \
   rpm createrepo \
   yum-utils \
   sudo \
-  mongodb-org-tools \
-  python3-pip python3-requests
+  mongodb-org-tools
 
 # Install build tools
 RUN npm config set registry https://registry.npmjs.org/ 2> /dev/null
 RUN npm install -g grunt 2> /dev/null
 RUN npm install -g bower 2> /dev/null
-
-RUN pip3 install selenium boto3
 
 # Replace 1000 with your user / group id
 RUN export uid=1000 gid=1000 && \
